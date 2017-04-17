@@ -4,7 +4,6 @@ import time
 
 """
 ~~ Sieve of Eratosthenes ~~
-
 """
 
 print "Sum of prime numbers up to 2 million."
@@ -24,6 +23,7 @@ def fast__primes_under(n):
         sieve[      k*k/3      ::2*k] = [False] * ((n/6-k*k/6-1)/k+1)
         sieve[k*(k-2*(i&1)+4)/3::2*k] = [False] * ((n/6-k*(k-2*(i&1)+4)/6-1)/k+1)
     return [2,3] + [3*i+1|1 for i in xrange(1,n/3-correction) if sieve[i]] 
+
 print sum(fast__primes_under(m))
 end = time.time() - start
 print "Runtime =", end
